@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solana Account Viewer -- AngelofDEA1</title>
+  <meta name="description" content="Inspect Solana Devnet accounts, balances, program ownership, and onchain state via live RPC.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="header-meta">Solana Devnet &nbsp;/&nbsp; <span>Live RPC</span></div>
+      <h1>Account Viewer</h1>
+      <p class="header-sub">
+        Enter one or more Solana wallet or program addresses to see their balance, type, and owner pulled directly from Devnet.
+      </p>
+      <div class="byline">Built by <strong>AngelofDEA1</strong> &nbsp;--&nbsp; Solana Campus Program UniUyo, Week 1</div>
+    </header>
+
+    <main>
+      <div class="panel">
+        <div class="panel-label">
+          <span>Addresses</span>
+          <span class="rpc-tag" id="rpcStatus">api.devnet.solana.com</span>
+        </div>
+
+        <textarea
+          id="addressInput"
+          placeholder="Paste addresses separated by spaces, commas, or new lines&#10;&#10;e.g.  11111111111111111111111111111111&#10;      TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+          rows="5"
+          spellcheck="false"
+          autocomplete="off"
+        ></textarea>
+
+        <div class="actions-row">
+          <div class="quick-samples">
+            <span class="quick-label">Try:</span>
+            <button class="sample-chip" id="sampleSystemBtn" type="button">System Program</button>
+            <button class="sample-chip" id="sampleTokenBtn"  type="button">SPL Token</button>
+            <button class="sample-chip" id="sampleMultiBtn"  type="button">Batch (4 addresses)</button>
+            <button class="sample-chip" id="clearBtn"        type="button">Clear</button>
+          </div>
+
+          <button id="lookupBtn" class="btn-primary" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            Query Accounts
+          </button>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="results-bar">
+        <span class="results-bar-label">Results (<span id="resultCount">0</span>)</span>
+        <span id="resultsSummary" class="results-meta">--</span>
+      </div>
+
+      <div id="cardsContainer">
+        <div class="empty-state">
+          Enter an address above and click <strong>Query Accounts</strong> to inspect it.
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <span>AngelofDEA1 &nbsp;/&nbsp; Solana Campus Program UniUyo &nbsp;/&nbsp; Week 1</span>
+      <span>
+        <a href="https://github.com/AngelofDEA1" target="_blank" rel="noreferrer">github.com/AngelofDEA1</a>
+        &nbsp;&nbsp;
+        <a href="https://explorer.solana.com/?cluster=devnet" target="_blank" rel="noreferrer">Solana Explorer</a>
+      </span>
+    </footer>
+
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
